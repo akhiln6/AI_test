@@ -1,6 +1,6 @@
 "use client";
 
-import { Receipt, Plus, Sparkles } from "lucide-react";
+import { Receipt, Plus, Sparkles, LogOut, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export type NavTab = "dashboard" | "invoices" | "customers" | "products" | "settings";
@@ -11,6 +11,8 @@ interface NavbarProps {
   onNewInvoice: () => void;
   onSeedData: () => void;
   seeding?: boolean;
+  user?: { email: string; name: string } | null;
+  onLogout?: () => void;
 }
 
 export function Navbar({
@@ -19,6 +21,8 @@ export function Navbar({
   onNewInvoice,
   onSeedData,
   seeding,
+  user,
+  onLogout,
 }: NavbarProps) {
   const tabs: { id: NavTab; label: string }[] = [
     { id: "dashboard", label: "Dashboard" },
@@ -76,7 +80,7 @@ export function Navbar({
               size="sm"
               onClick={onSeedData}
               disabled={seeding}
-              className="hidden sm:inline-flex text-xs h-9 border-slate-200 text-slate-700 hover:bg-slate-50"
+              className="hidden lg:inline-flex text-xs h-9 border-slate-200 text-slate-700 hover:bg-slate-50"
               title="Populate demo data to explore features"
             >
               <Sparkles className={`h-3.5 w-3.5 mr-1.5 text-amber-500 ${seeding ? "animate-spin" : ""}`} />
@@ -90,6 +94,29 @@ export function Navbar({
               <Plus className="h-4 w-4 mr-1 sm:mr-1.5" />
               New Invoice
             </Button>
+
+            {/* User profile & Logout */}
+            {user && (
+              <div className="flex items-center gap-2 pl-2 border-l border-slate-200 ml-1">
+                <div className="hidden sm:flex flex-col text-right">
+                  <span className="text-xs font-semibold text-slate-900 leading-tight">
+                    {user.name || "Akhil"}
+                  </span>
+                  <span className="text-[10px] text-slate-500 leading-none truncate max-w-[130px]">
+                    {user.email}
+                  </span>
+                </div>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={onLogout}
+                  className="h-9 w-9 p-0 text-slate-500 hover:text-red-600 hover:bg-red-50"
+                  title="Sign out"
+                >
+                  <LogOut className="h-4 w-4" />
+                </Button>
+              </div>
+            )}
           </div>
         </div>
 
@@ -116,4 +143,3 @@ export function Navbar({
     </header>
   );
 }
-

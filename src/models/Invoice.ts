@@ -148,6 +148,9 @@ InvoiceSchema.pre("save", function () {
   }
 });
 
+if (mongoose.models && mongoose.models.Invoice) {
+  delete mongoose.models.Invoice;
+}
 const Invoice: Model<IInvoice> =
   mongoose.models.Invoice || mongoose.model<IInvoice>("Invoice", InvoiceSchema);
 

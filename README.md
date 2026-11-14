@@ -12,6 +12,13 @@ A modern, full-featured invoicing and billing application built with **Next.js (
   - Invoice status distribution (Paid, Pending, Overdue, Draft).
   - Quick action buttons (Create Invoice, Add Customer, Seed Demo Data).
 
+- **🔒 Authentication & Access Protection**:
+  - Protected home page gated by secure login.
+  - Pre-configured administrator credentials:
+    - **Email/Username**: `akhiln6@gmail.com`
+    - **Password**: `123456`
+  - Persistent 30-day session with HTTP-only cookies and one-click Sign Out.
+
 - **🧾 Complete Invoice Management**:
   - Dynamic line items with real-time subtotal, discount %, tax %, and grand total calculations.
   - Customer selection dropdown or on-the-fly customer creation.

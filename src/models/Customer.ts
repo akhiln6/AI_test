@@ -41,7 +41,10 @@ const CustomerSchema = new Schema<ICustomer>(
   }
 );
 
-// Prevent mongoose overwrite error during HMR
+// Always ensure fresh schema registration during dev
+if (mongoose.models && mongoose.models.Customer) {
+  delete mongoose.models.Customer;
+}
 const Customer: Model<ICustomer> =
   mongoose.models.Customer || mongoose.model<ICustomer>("Customer", CustomerSchema);
 

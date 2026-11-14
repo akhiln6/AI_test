@@ -1,5 +1,5 @@
-import { BillingApp } from "@/components/billing/BillingApp";
+import { AuthWrapper } from "@/components/auth/AuthWrapper";
 
 export default function Home() {
-  return <BillingApp />;
+  return <AuthWrapper />;
 }
