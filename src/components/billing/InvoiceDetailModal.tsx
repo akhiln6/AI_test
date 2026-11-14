@@ -18,6 +18,7 @@ export interface FullInvoice {
     name: string;
     email: string;
     phone?: string;
+    whatsappNumber?: string;
     company?: string;
     address?: {
       street?: string;
@@ -226,6 +227,9 @@ export function InvoiceDetailModal({
               <p className="text-slate-600">{invoice.customer?.email}</p>
               {invoice.customer?.phone && (
                 <p className="text-slate-600">{invoice.customer.phone}</p>
+              )}
+              {invoice.customer?.whatsappNumber && (
+                <p className="text-emerald-700 font-medium">WhatsApp: {invoice.customer.whatsappNumber}</p>
               )}
               {invoice.customer?.address?.street && (
                 <p className="text-slate-600 mt-1">

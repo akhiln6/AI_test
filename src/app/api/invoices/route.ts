@@ -68,6 +68,7 @@ export async function POST(req: NextRequest) {
           name: dbCust.name,
           email: dbCust.email,
           phone: dbCust.phone || "",
+          whatsappNumber: dbCust.whatsappNumber || "",
           company: dbCust.company || "",
           address: dbCust.address || {},
           taxNumber: dbCust.taxNumber || "",

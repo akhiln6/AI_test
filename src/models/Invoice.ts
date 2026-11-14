@@ -23,6 +23,7 @@ export interface IInvoiceCustomerSnapshot {
   name: string;
   email: string;
   phone?: string;
+  whatsappNumber?: string;
   company?: string;
   address?: {
     street?: string;
@@ -96,6 +97,7 @@ const InvoiceSchema = new Schema<IInvoice>(
       name: { type: String, required: true },
       email: { type: String, required: true },
       phone: { type: String, default: "" },
+      whatsappNumber: { type: String, default: "" },
       company: { type: String, default: "" },
       address: {
         street: { type: String, default: "" },

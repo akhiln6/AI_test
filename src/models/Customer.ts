@@ -4,6 +4,7 @@ export interface ICustomer extends Document {
   name: string;
   email: string;
   phone?: string;
+  whatsappNumber?: string;
   company?: string;
   address?: {
     street?: string;
@@ -23,6 +24,7 @@ const CustomerSchema = new Schema<ICustomer>(
     name: { type: String, required: [true, "Customer name is required"], trim: true },
     email: { type: String, required: [true, "Customer email is required"], trim: true, lowercase: true },
     phone: { type: String, trim: true },
+    whatsappNumber: { type: String, trim: true, default: "" },
     company: { type: String, trim: true },
     address: {
       street: { type: String, default: "" },

@@ -41,6 +41,7 @@ export async function POST() {
         name: "Sarah Jenkins",
         email: "sarah@apexdesign.co",
         phone: "+1 (555) 234-5678",
+        whatsappNumber: "+1 (555) 234-5678",
         company: "Apex Design Studio",
         address: {
           street: "742 Evergreen Terrace",
@@ -56,6 +57,7 @@ export async function POST() {
         name: "David Chen",
         email: "d.chen@quantumflow.io",
         phone: "+1 (555) 987-6543",
+        whatsappNumber: "+1 (555) 987-6543",
         company: "QuantumFlow Systems",
         address: {
           street: "100 Innovation Way",
@@ -71,6 +73,7 @@ export async function POST() {
         name: "Elena Rostova",
         email: "elena@luminahealth.org",
         phone: "+1 (555) 456-7890",
+        whatsappNumber: "+1 (555) 456-7890",
         company: "Lumina Health Labs",
         address: {
           street: "450 Medical Center Blvd",
@@ -155,6 +158,7 @@ export async function POST() {
             name: c1.name,
             email: c1.email,
             phone: c1.phone,
+            whatsappNumber: c1.whatsappNumber,
             company: c1.company,
             address: c1.address,
             taxNumber: c1.taxNumber,
@@ -205,6 +209,7 @@ export async function POST() {
             name: c2.name,
             email: c2.email,
             phone: c2.phone,
+            whatsappNumber: c2.whatsappNumber,
             company: c2.company,
             address: c2.address,
             taxNumber: c2.taxNumber,
@@ -255,6 +260,7 @@ export async function POST() {
             name: c3.name,
             email: c3.email,
             phone: c3.phone,
+            whatsappNumber: c3.whatsappNumber,
             company: c3.company,
             address: c3.address,
             taxNumber: c3.taxNumber,

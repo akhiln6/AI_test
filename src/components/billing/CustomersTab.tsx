@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Search, Plus, Mail, Phone, MapPin, Building, Edit, Trash2, Receipt } from "lucide-react";
+import { Search, Plus, Mail, Phone, MapPin, Building, Edit, Trash2, Receipt, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CustomerType } from "./CustomerModal";
@@ -148,6 +148,23 @@ export function CustomersTab({
                     <div className="flex items-center gap-2">
                       <Phone className="h-3.5 w-3.5 text-slate-400 shrink-0" />
                       <span>{c.phone}</span>
+                    </div>
+                  )}
+
+                  {c.whatsappNumber && (
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <MessageCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+                        <span className="text-emerald-700 font-medium">{c.whatsappNumber}</span>
+                      </div>
+                      <a
+                        href={`https://wa.me/${c.whatsappNumber.replace(/[^0-9]/g, "")}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[10px] text-emerald-600 hover:text-emerald-800 hover:underline bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200"
+                      >
+                        WhatsApp
+                      </a>
                     </div>
                   )}
 

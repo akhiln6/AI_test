@@ -18,6 +18,7 @@ export interface CustomerType {
   name: string;
   email: string;
   phone?: string;
+  whatsappNumber?: string;
   company?: string;
   address?: {
     street?: string;
@@ -47,6 +48,7 @@ export function CustomerModal({
     name: "",
     email: "",
     phone: "",
+    whatsappNumber: "",
     company: "",
     address: {
       street: "",
@@ -69,6 +71,7 @@ export function CustomerModal({
         name: customer.name || "",
         email: customer.email || "",
         phone: customer.phone || "",
+        whatsappNumber: customer.whatsappNumber || "",
         company: customer.company || "",
         address: {
           street: customer.address?.street || "",
@@ -85,6 +88,7 @@ export function CustomerModal({
         name: "",
         email: "",
         phone: "",
+        whatsappNumber: "",
         company: "",
         address: { street: "", city: "", state: "", postalCode: "", country: "" },
         taxNumber: "",
@@ -189,14 +193,39 @@ export function CustomerModal({
             </div>
           </div>
 
-          <div className="space-y-1.5">
-            <Label htmlFor="cust-tax">Tax ID / VAT / GST Number</Label>
-            <Input
-              id="cust-tax"
-              value={formData.taxNumber}
-              onChange={(e) => setFormData({ ...formData, taxNumber: e.target.value })}
-              placeholder="e.g. US-123456789 or GSTIN"
-            />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="space-y-1.5">
+              <Label htmlFor="cust-tax">Tax ID / VAT / GST Number</Label>
+              <Input
+                id="cust-tax"
+                value={formData.taxNumber}
+                onChange={(e) => setFormData({ ...formData, taxNumber: e.target.value })}
+                placeholder="e.g. US-123456789 or GSTIN"
+              />
+            </div>
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between">
+                <Label htmlFor="cust-whatsapp" className="flex items-center gap-1.5">
+                  <span className="inline-block w-2 h-2 rounded-full bg-emerald-500"></span>
+                  WhatsApp Number
+                </Label>
+                {formData.phone && (
+                  <button
+                    type="button"
+                    onClick={() => setFormData({ ...formData, whatsappNumber: formData.phone })}
+                    className="text-[11px] text-emerald-600 hover:text-emerald-700 hover:underline cursor-pointer"
+                  >
+                    Same as phone
+                  </button>
+                )}
+              </div>
+              <Input
+                id="cust-whatsapp"
+                value={formData.whatsappNumber || ""}
+                onChange={(e) => setFormData({ ...formData, whatsappNumber: e.target.value })}
+                placeholder="+1 (555) 012-3456"
+              />
+            </div>
           </div>
 
           <div className="space-y-2 pt-1 border-t border-slate-100">
