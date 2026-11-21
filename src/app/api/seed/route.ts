@@ -26,8 +26,8 @@ export async function POST() {
           country: "United States",
         },
         taxId: "US-892410842",
-        currency: "USD",
-        defaultTaxRate: 10,
+        currency: "INR",
+        defaultTaxRate: 18,
         paymentDetails:
           "Bank: JPMorgan Chase\nAccount Name: NovaTech Solutions Inc.\nAccount No: 4892-0012-9842\nRouting/ABA: 021000021\nSWIFT/BIC: CHASUS33XXX",
         defaultTerms:
@@ -189,7 +189,7 @@ export async function POST() {
           total: 3467.75,
           amountPaid: 3467.75,
           status: "paid" as const,
-          currency: "USD",
+          currency: "INR",
           notes: "All deliverables signed off. Thank you!",
           terms: "Net 14",
           payments: [
@@ -240,7 +240,7 @@ export async function POST() {
           total: 5952,
           amountPaid: 2000,
           status: "pending" as const,
-          currency: "USD",
+          currency: "INR",
           notes: "Partial milestone payment of $2,000 received.",
           terms: "Net 14",
           payments: [
@@ -283,7 +283,7 @@ export async function POST() {
           total: 3300,
           amountPaid: 0,
           status: "overdue" as const,
-          currency: "USD",
+          currency: "INR",
           notes: "First payment reminder sent 3 days ago.",
           terms: "Net 30",
           payments: [],

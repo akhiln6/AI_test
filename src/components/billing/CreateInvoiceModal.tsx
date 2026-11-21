@@ -45,7 +45,7 @@ export function CreateInvoiceModal({
   onOpenCustomerModal,
   customers,
   products,
-  defaultCurrency = "USD",
+  defaultCurrency = "INR",
 }: CreateInvoiceModalProps) {
   const [selectedCustomerId, setSelectedCustomerId] = useState<string>("");
   const [invoiceNumber, setInvoiceNumber] = useState<string>("");

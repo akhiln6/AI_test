@@ -5,15 +5,17 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function formatCurrency(amount: number, currency: string = "USD"): string {
+export function formatCurrency(amount: number, currency: string = "INR"): string {
+  const curr = currency || "INR";
   try {
-    return new Intl.NumberFormat("en-US", {
+    const locale = curr === "INR" ? "en-IN" : "en-US";
+    return new Intl.NumberFormat(locale, {
       style: "currency",
-      currency: currency || "USD",
+      currency: curr,
       minimumFractionDigits: 2,
     }).format(amount || 0);
   } catch {
-    return `${currency} ${(amount || 0).toFixed(2)}`;
+    return `${curr === "INR" ? "₹" : curr} ${(amount || 0).toFixed(2)}`;
   }
 }
 
@@ -27,4 +29,3 @@ export function formatDate(date: string | Date | undefined): string {
     day: "numeric",
   });
 }
-

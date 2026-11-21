@@ -62,8 +62,8 @@ export function SettingsTab({
       country: "USA",
     },
     taxId: "US-84920412",
-    currency: "USD",
-    defaultTaxRate: 10,
+    currency: "INR",
+    defaultTaxRate: 18,
     paymentDetails:
       "Bank: Silicon Valley Bank\nAccount Name: Acme Corp\nAccount Number: 9876543210\nRouting Number: 121000358\nSWIFT: SVBUS6S",
     defaultTerms:

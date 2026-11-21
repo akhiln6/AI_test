@@ -139,7 +139,7 @@ export async function POST(req: NextRequest) {
       total,
       amountPaid,
       status: initialStatus,
-      currency: body.currency || "USD",
+      currency: body.currency || "INR",
       notes: body.notes || "",
       terms: body.terms || "",
       payments: body.payments || [],

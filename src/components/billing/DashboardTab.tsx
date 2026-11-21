@@ -1,7 +1,7 @@
 "use client";
 
 import {
-  DollarSign,
+  IndianRupee,
   Clock,
   AlertTriangle,
   Receipt,
@@ -47,6 +47,7 @@ interface DashboardTabProps {
   onSeedData: () => void;
   onGoToInvoices: () => void;
   seeding?: boolean;
+  currency?: string;
 }
 
 export function DashboardTab({
@@ -59,6 +60,7 @@ export function DashboardTab({
   onSeedData,
   onGoToInvoices,
   seeding,
+  currency = "INR",
 }: DashboardTabProps) {
   if (loading) {
     return (
@@ -173,12 +175,12 @@ export function DashboardTab({
               Total Revenue
             </CardTitle>
             <div className="h-8 w-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
-              <DollarSign className="h-4 w-4" />
+              <IndianRupee className="h-4 w-4" />
             </div>
           </CardHeader>
           <CardContent className="p-5 pt-0">
             <div className="text-2xl font-bold text-slate-900">
-              {formatCurrency(summary.totalRevenue)}
+              {formatCurrency(summary.totalRevenue, currency)}
             </div>
             <p className="text-[11px] text-emerald-600 font-medium flex items-center gap-1 mt-1">
               <TrendingUp className="h-3 w-3" />
@@ -199,7 +201,7 @@ export function DashboardTab({
           </CardHeader>
           <CardContent className="p-5 pt-0">
             <div className="text-2xl font-bold text-slate-900">
-              {formatCurrency(summary.totalPending)}
+              {formatCurrency(summary.totalPending, currency)}
             </div>
             <p className="text-[11px] text-slate-500 font-medium mt-1">
               {summary.pendingCount} pending invoice{summary.pendingCount !== 1 ? "s" : ""} awaiting payment
@@ -219,7 +221,7 @@ export function DashboardTab({
           </CardHeader>
           <CardContent className="p-5 pt-0">
             <div className="text-2xl font-bold text-red-600">
-              {formatCurrency(summary.totalOverdue)}
+              {formatCurrency(summary.totalOverdue, currency)}
             </div>
             <p className="text-[11px] text-red-500 font-medium mt-1">
               {summary.overdueCount} invoice{summary.overdueCount !== 1 ? "s" : ""} past due date
@@ -239,7 +241,7 @@ export function DashboardTab({
           </CardHeader>
           <CardContent className="p-5 pt-0">
             <div className="text-2xl font-bold text-slate-900">
-              {formatCurrency(summary.totalInvoiced)}
+              {formatCurrency(summary.totalInvoiced, currency)}
             </div>
             <p className="text-[11px] text-slate-500 font-medium mt-1">
               Across {summary.totalInvoices} total invoice{summary.totalInvoices !== 1 ? "s" : ""}
@@ -284,13 +286,13 @@ export function DashboardTab({
                       <div
                         style={{ height: `${invHeight}%` }}
                         className="w-1/2 max-w-[24px] bg-blue-500/80 hover:bg-blue-600 rounded-t-sm transition-all relative group-hover:shadow"
-                        title={`${m.month} Invoiced: ${formatCurrency(m.invoiced)}`}
+                        title={`${m.month} Invoiced: ${formatCurrency(m.invoiced, currency)}`}
                       />
                       {/* Paid Bar */}
                       <div
                         style={{ height: `${paidHeight}%` }}
                         className="w-1/2 max-w-[24px] bg-emerald-500 hover:bg-emerald-600 rounded-t-sm transition-all relative group-hover:shadow"
-                        title={`${m.month} Collected: ${formatCurrency(m.paid)}`}
+                        title={`${m.month} Collected: ${formatCurrency(m.paid, currency)}`}
                       />
                     </div>
                     <span className="text-[11px] font-medium text-slate-500 mt-2">

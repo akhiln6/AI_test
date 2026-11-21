@@ -124,7 +124,7 @@ const InvoiceSchema = new Schema<IInvoice>(
       enum: ["draft", "pending", "paid", "overdue", "cancelled"],
       default: "pending",
     },
-    currency: { type: String, default: "USD" },
+    currency: { type: String, default: "INR" },
     notes: { type: String, default: "" },
     terms: { type: String, default: "" },
     payments: [PaymentRecordSchema],

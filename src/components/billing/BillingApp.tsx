@@ -245,6 +245,7 @@ export function BillingApp({ user, onLogout }: BillingAppProps) {
             onSeedData={handleSeedData}
             onGoToInvoices={() => setCurrentTab("invoices")}
             seeding={seeding}
+            currency={settings?.currency || "INR"}
           />
         )}
 
@@ -277,7 +278,7 @@ export function BillingApp({ user, onLogout }: BillingAppProps) {
             onNewProduct={handleOpenNewProduct}
             onEditProduct={handleEditProduct}
             onDeleteProduct={handleDeleteProduct}
-            currency={settings?.currency || "USD"}
+            currency={settings?.currency || "INR"}
           />
         )}
 
@@ -316,7 +317,7 @@ export function BillingApp({ user, onLogout }: BillingAppProps) {
         }}
         customers={customers}
         products={products}
-        defaultCurrency={settings?.currency || "USD"}
+        defaultCurrency={settings?.currency || "INR"}
       />
 
       <InvoiceDetailModal

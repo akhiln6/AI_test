@@ -33,8 +33,8 @@ const SettingsSchema = new Schema<ISettings>(
       country: { type: String, default: "USA" },
     },
     taxId: { type: String, default: "US-84920412" },
-    currency: { type: String, default: "USD" },
-    defaultTaxRate: { type: Number, default: 10 },
+    currency: { type: String, default: "INR" },
+    defaultTaxRate: { type: Number, default: 18 },
     paymentDetails: {
       type: String,
       default:
